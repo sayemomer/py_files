@@ -13,9 +13,14 @@ print(Fore.RED + a_tags.get_text());
 latest_news = response.select('h5 a')
 number = 1
 
+newsFile = open('dailyNews.txt','a')
+
 for news in latest_news:
 	print(Fore.BLUE + str(number) +' : '+ news.get_text())
+	newsFile.write("\n")
+	newsFile.write(news.get_text())
 	number=number+1
+newsFile.close()
 
 #print(a_tags[0])
 # for link in a_tags:
